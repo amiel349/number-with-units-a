@@ -21,22 +21,19 @@ namespace ariel{
         
         /* 6 arithmetic operations */
 
-        // unary addition
+        // unary and binary addition 
         const NumberWithUnits operator+(const NumberWithUnits& num);
         const NumberWithUnits operator+()const;
-         // binary addition
-        //const  NumberWithUnits operator+(const NumberWithUnits& num)const ;
+        
          // binary addition adn assigment
         const NumberWithUnits& operator+=(const NumberWithUnits& num)const;
-         // prefix addition operator
+         // prefix and postfix addittion operator
         const NumberWithUnits& operator++()const; 
         const NumberWithUnits& operator++(int num)const;
         
-        // unary substraction
+        // unary and binary substraction 
         const NumberWithUnits operator-()const;
         const NumberWithUnits operator-(const NumberWithUnits& num);
-        // binary substraction
-         //const NumberWithUnits operator-(const NumberWithUnits& num );
         // binary substraction adn assigment
         const NumberWithUnits& operator-=(const NumberWithUnits& num) const;
          //prefix substraction  operator

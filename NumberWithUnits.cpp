@@ -22,7 +22,7 @@ namespace ariel{
         
         /* 6 arithmetic operations */
 
-        // unary addition
+        // unary and binaary addition
           const NumberWithUnits NumberWithUnits::operator+(const NumberWithUnits& num){
             return NumberWithUnits(0,"USD");
         }
@@ -72,7 +72,7 @@ namespace ariel{
          bool NumberWithUnits::operator<( const NumberWithUnits& num)const  {return true;}
          /* 4 increasing and dicreasing operators */
     
-        /*  multiplication operator */
+        /*  multiplication prefix and postfix operator */
 
         const NumberWithUnits& operator*(const double num, const NumberWithUnits& x) {return x;}
 

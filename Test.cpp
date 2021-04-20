@@ -11,8 +11,12 @@ using namespace ariel;
     NumberWithUnits d_a{2, "km"}; 
     NumberWithUnits d_b{2, "m"}; 
 
+    //mambers of weight
+
     NumberWithUnits w_a{2, "ton"}; 
     NumberWithUnits w_b{2, "kg"}; 
+
+    //mambers of coin
 
     NumberWithUnits c_a{1, "ILS"}; 
     NumberWithUnits c_b{1, "USD"}; 
