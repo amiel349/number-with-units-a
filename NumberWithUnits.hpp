@@ -27,6 +27,7 @@ namespace ariel{
         
          // binary addition adn assigment
         const NumberWithUnits& operator+=(const NumberWithUnits& num)const;
+
          // prefix and postfix addittion operator
         const NumberWithUnits& operator++()const; 
         const NumberWithUnits& operator++(int num)const;
@@ -34,10 +35,13 @@ namespace ariel{
         // unary and binary substraction 
         const NumberWithUnits operator-()const;
         const NumberWithUnits operator-(const NumberWithUnits& num);
+
         // binary substraction adn assigment
         const NumberWithUnits& operator-=(const NumberWithUnits& num) const;
+
          //prefix substraction  operator
         const NumberWithUnits& operator--()const;
+
         // postfix substraction
         const NumberWithUnits& operator--(int num)const;
 
@@ -61,12 +65,10 @@ namespace ariel{
       
 
         /*  multiplication operator */
-
        friend const NumberWithUnits& operator*(const NumberWithUnits& num,const double x) ;
-
        friend const NumberWithUnits& operator*(const double x,const NumberWithUnits& num) ;
 
-        static void read_units(ifstream& file);
+       static void read_units(ifstream& file);
 
         /* input and output operators */
         // output operator

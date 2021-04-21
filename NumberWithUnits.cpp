@@ -37,9 +37,9 @@ namespace ariel{
        const NumberWithUnits& NumberWithUnits::operator++(int num)const{return *this;}
 
         // unary substraction
-        const NumberWithUnits NumberWithUnits::operator-()const{return NumberWithUnits(0,"USD");}
+       const NumberWithUnits NumberWithUnits::operator-()const{return NumberWithUnits(0,"USD");}
 
-         const NumberWithUnits NumberWithUnits::operator-(const NumberWithUnits& num){return NumberWithUnits(0,"USD"); }
+       const NumberWithUnits NumberWithUnits::operator-(const NumberWithUnits& num){return NumberWithUnits(0,"USD"); }
         //prefix substraction  operator
        const NumberWithUnits& NumberWithUnits::operator--()const{return *this;}
         // postfix substraction
@@ -58,25 +58,22 @@ namespace ariel{
         /* 6 comparission operators*/
 
         // equal operator
-        bool ariel::NumberWithUnits::operator==(const NumberWithUnits& num)const{ return true;}
-         
+       bool ariel::NumberWithUnits::operator==(const NumberWithUnits& num)const{ return true;} 
         // not equal operator
-        bool NumberWithUnits::operator!=(const NumberWithUnits& num)const {return true;}
+       bool NumberWithUnits::operator!=(const NumberWithUnits& num)const {return true;}
         // grather equal operator
-         bool NumberWithUnits::operator>=(const NumberWithUnits& num)const  {return true;}
+       bool NumberWithUnits::operator>=(const NumberWithUnits& num)const  {return true;}
         // smaller equal operator
-         bool NumberWithUnits::operator<=(const NumberWithUnits& num)const  {return true;}
+       bool NumberWithUnits::operator<=(const NumberWithUnits& num)const  {return true;}
         // grather than operator
-         bool NumberWithUnits::operator>( const NumberWithUnits& num)const  {return true;}
+       bool NumberWithUnits::operator>( const NumberWithUnits& num)const  {return true;}
         // smaller than operator
-         bool NumberWithUnits::operator<( const NumberWithUnits& num)const  {return true;}
-         /* 4 increasing and dicreasing operators */
+       bool NumberWithUnits::operator<( const NumberWithUnits& num)const  {return true;}
+
     
         /*  multiplication prefix and postfix operator */
 
         const NumberWithUnits& operator*(const double num, const NumberWithUnits& x) {return x;}
-
-
         const NumberWithUnits& operator*(const NumberWithUnits& x,const double num) {return x;}
 
 
@@ -85,9 +82,9 @@ namespace ariel{
        ostream& operator<<(ostream & os, const NumberWithUnits& num){string s="check"; os<<s;return os;}
 
         // input operator
-        istream& operator>>(istream & is, NumberWithUnits& num){string s="check"; is>>s;return is;}
+       istream& operator>>(istream & is, NumberWithUnits& num){string s="check"; is>>s;return is;}
 
-         void NumberWithUnits::read_units(ifstream& file){return;};
+       void NumberWithUnits::read_units(ifstream& file){};
     
     
     // ostream& operator<<(ostream &os, const NumberWithUnits& num);

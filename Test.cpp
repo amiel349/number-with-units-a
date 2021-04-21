@@ -1,12 +1,21 @@
+/**
+ * Test file for the exercise on numbers with units
+ *
+ * @author Amiel Lejzor
+ * @since 2021
+ */
 #include <iostream>
 #include <stdexcept>
 #include "doctest.h"
 #include <fstream>
 #include "NumberWithUnits.hpp"
-using namespace std;
+//using namespace std;
 using namespace ariel;
 
 // members of distance
+
+    //ifstream units_file{"units.txt"};  
+   // NumberWithUnits::read_units(units_file);
     
     NumberWithUnits d_a{2, "km"}; 
     NumberWithUnits d_b{2, "m"}; 
@@ -23,7 +32,6 @@ using namespace ariel;
 
 TEST_CASE("good addition and subtraction postfix and prefix"){
     
-     
     CHECK((d_a+d_b)==NumberWithUnits{2.002, "km"});
     CHECK((w_a+w_b)==NumberWithUnits{2.002, "ton"});
     CHECK((c_a+c_b)==NumberWithUnits{4.33, "ILS"});
@@ -112,32 +120,35 @@ TEST_CASE("good comparission operators"){
 
     c_a={1, "ILS"}; 
     c_b={1, "USD"}; 
-    
+    for (size_t i = 0; i < 5; i++)
+    {
+       double x=(rand()%50)+50;
+       double y=rand()%50;
      // gt
-    CHECK((d_a)>NumberWithUnits{1, "km"});
-    CHECK((w_a)>NumberWithUnits{1, "ton"});
-    CHECK((c_a)>NumberWithUnits{.5, "ILS"});
+    CHECK(NumberWithUnits{x, "km"}>NumberWithUnits{1, "km"});
+    CHECK(NumberWithUnits{x, "ton"}>NumberWithUnits{1, "ton"});
+    CHECK(NumberWithUnits{x, "ILS"}>NumberWithUnits{.5, "ILS"});
     //lt
-    CHECK((d_a)<NumberWithUnits{50, "km"});
-    CHECK((w_a)<NumberWithUnits{50, "ton"});
-    CHECK((c_a)<NumberWithUnits{50, "ILS"});
+    CHECK(NumberWithUnits{y, "km"}<NumberWithUnits{x, "km"});
+    CHECK(NumberWithUnits{y, "ton"}<NumberWithUnits{x, "ton"});
+    CHECK(NumberWithUnits{y, "ILS"}<NumberWithUnits{x, "ILS"});
     // not equal
-    CHECK((d_a)!=NumberWithUnits{1.998, "km"});
-    CHECK((w_a)!=NumberWithUnits{1.998, "ton"});
-    CHECK((c_a)!=NumberWithUnits{-2.33, "ILS"});
+    CHECK(NumberWithUnits{x, "km"}!=NumberWithUnits{y, "km"});
+    CHECK(NumberWithUnits{x, "ton"}!=NumberWithUnits{y, "ton"});
+    CHECK(NumberWithUnits{x, "ILS"}!=NumberWithUnits{y, "ILS"});
 
-    CHECK((d_a)>=NumberWithUnits{2, "km"});
-    CHECK((w_a)>=NumberWithUnits{2, "ton"});
-    CHECK((c_a)>=NumberWithUnits{1, "ILS"});
+    CHECK(NumberWithUnits{x, "km"}>=NumberWithUnits{y, "km"});
+    CHECK(NumberWithUnits{x, "ton"}>=NumberWithUnits{x, "ton"});
+    CHECK(NumberWithUnits{y, "ILS"}>=NumberWithUnits{y, "ILS"});
     //equal less than
-    CHECK((d_a)<=NumberWithUnits{2, "km"});
-    CHECK((w_a)<=NumberWithUnits{2, "ton"});
-    CHECK((c_a)<=NumberWithUnits{1, "ILS"});
+    CHECK(NumberWithUnits{x, "km"}<=NumberWithUnits{x, "km"});
+    CHECK(NumberWithUnits{y, "ton"}<=NumberWithUnits{y, "ton"});
+    CHECK(NumberWithUnits{y, "ILS"}<=NumberWithUnits{x, "ILS"});
+    //equal
+    CHECK(NumberWithUnits{x, "km"}==NumberWithUnits{x, "km"});
+    CHECK(NumberWithUnits{y, "ton"}==NumberWithUnits{y, "ton"});
 
-   
-
-   
-    
+       }
     }
 
     TEST_CASE("bad comparission operators"){
@@ -172,6 +183,11 @@ TEST_CASE("good comparission operators"){
     CHECK_FALSE((d_a)<=NumberWithUnits{1, "km"});
     CHECK_FALSE((w_a)<=NumberWithUnits{1, "ton"});
     CHECK_FALSE((c_a)<=NumberWithUnits{1, "ILS"});
+    //equal
+    //equal
+    CHECK_FALSE((d_a)==NumberWithUnits{3, "km"});
+    CHECK_FALSE((w_a)==NumberWithUnits{3, "ton"});
+    CHECK_FALSE((c_a)==NumberWithUnits{3, "ILS"});
 
     }
 
